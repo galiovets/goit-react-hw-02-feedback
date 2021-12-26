@@ -1,0 +1,29 @@
+.btnList {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.btnItem:not(:last-child) {
+  margin-right: 30px;
+}
+
+.btn {
+  text-align: center;
+  font-size: 18px;
+  min-width: 70px;
+  padding: 5px 10px;
+  background-color: #fff;
+  border: rgba(2, 6, 48, 0.589) 3px solid;
+  border-radius: 25px;
+  cursor: pointer;
+  transform: scale(1);
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover,
+.btn:focus {
+  border-color: rgba(18, 29, 180, 0.199);
+  color: rgba(2, 6, 48, 0.589);
+  transform: scale(1.1);
+}

@@ -1,0 +1,13 @@
+.title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.statItem {
+  font-size: 17px;
+  color: black;
+}
+
+.statItem:not(:last-child) {
+  margin-bottom: 3px;
+}
