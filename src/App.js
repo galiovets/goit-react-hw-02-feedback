@@ -12,25 +12,30 @@ class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = type => {
-    this.setState(prevState => ({
-      [type]: prevState[type] + 1,
-    }));
+  onLeaveFeedback = evt => {
+    const name = evt.target.name;
+    this.setState(prevState => {
+      return { [name]: prevState[name] + 1 };
+    });
   };
 
-  countTotalFeedback() {
-    return Object.values(this.state).reduce((acc, value) => acc + value, 0);
-  }
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
 
-  countPositiveFeedbackPercentage() {
+  countPositiveFeedbackPercentage = () => {
     return Math.round((this.state.good / this.countTotalFeedback()) * 100);
-  }
+  };
 
   render() {
     const { good, neutral, bad } = this.state;
     return (
       <Section title="Please leave your feedback">
-        <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} />
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Good" name="good" />
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Neutral" name="neutral" />
+        <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Bad" name="bad" />
+        {/* <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} /> */}
         {this.countTotalFeedback() === 0 ? (
           <NotifMessage message="There is no feedback yet" />
         ) : (
