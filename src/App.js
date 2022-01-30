@@ -35,7 +35,6 @@ class App extends Component {
         <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Good" name="good" />
         <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Neutral" name="neutral" />
         <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} options="Bad" name="bad" />
-        {/* <FeedbackOptions options={this.state} onLeaveFeedback={this.onLeaveFeedback} /> */}
         {this.countTotalFeedback() === 0 ? (
           <NotifMessage message="There is no feedback yet" />
         ) : (
